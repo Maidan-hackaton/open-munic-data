@@ -1,0 +1,45 @@
+<link rel="import" href="bower_components/polymer/polymer.html">
+<polymer-element name="x-person" attributes="name image date_of_birth">
+  <template>
+    <style>
+      .photo-container {
+        height: 100px;
+        width: 100px;
+        overflow: hidden;
+        border-radius: 100%;
+        display: block;
+        margin: auto;
+      }
+      .photo {
+        width: 100px;
+      }
+      .info {
+        flex: 1;
+        margin: auto 10px;
+      }
+      .content {
+        display: flex;
+        height: 100px; 
+      }
+    </style>
+    <div class="content">
+      <div class="photo-container">
+        <img class="photo" src="{{image}}" />
+      </div>
+      <div class="info">
+        <h2>{{name}}</h2>
+        <div>{{date_of_birth}}</div>
+      </div>
+    </div>
+  </template>
+  <script>
+    Polymer({
+      imageChanged: function(oldValue, newValue) {
+        if (newValue === "") {
+          this.image = "https://lh3.googleusercontent.com/-MsNtvUT1r64/AAAAAAAAAAI/AAAAAAAAAAA/uDXDAEKafXI/photo.jpg";
+        }
+      }
+    });
+  </script>
+</polymer-element>
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html charset="utf-8">
+<html>
+  <head>
+    <meta charset="utf-8"> 
+    <script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>
+    <link rel="import" href="x-people.html">
+    <style shim-shadowdom>
+    .column {
+      max-width: 400px;
+    }
+    x-people {
+      display: block;
+    }
+    x-people::shadow x-person {
+      display: block;
+      margin: 5px;
+    }
+    h2.cardsName {
+      background-color: #03A9F4;
+      color: #FFF;
+      padding: 10px;
+      margin: 5px;
+    }
+    x-people.fancyCard::shadow x-person::shadow .content  {
+      background-color: #03A9F4;
+      color: #FFF;
+      padding: 10px;
+    }
+    x-people::shadow x-person::shadow h2, h2.cardsName {
+      font-family: 'Playfair Display SC', serif;
+      font-weight: 200;
+    }
+    x-people::shadow x-person::shadow h2 {
+      margin: 0px;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="column">
+      <h2 class="cardsName">Депутаты Одесского областного совета</h2>
+    </div>
+    <x-people url="people.json" class="fancyCard column">
+    </x-people>
+  </body>
+</html>

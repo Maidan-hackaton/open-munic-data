@@ -1,0 +1,24 @@
+<link rel="import" href="x-person.html">
+<link rel="import" href="bower_components/polymer/polymer.html">
+<link rel="import" href="bower_components/core-ajax/core-ajax.html">
+<polymer-element name="x-people" attributes="list url">
+  <style>
+  </style>
+  <template>
+    <core-ajax url="{{url}}"
+      auto
+      handleAs="json"
+      on-core-response="{{handleResponse}}"></core-ajax>
+    <template repeat="{{person in list}}">
+      <x-person class="person" name="{{person.name}}" image="{{person.image}}" date_of_birth="{{person.date_of_birth}}"></x-person>
+    </template>
+  </template>
+  <script>
+    Polymer({
+      handleResponse: function (_, xhr) {
+        this.list = xhr.response;
+      }
+    });
+  </script>
+</polymer-element>
+
